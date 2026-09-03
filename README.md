@@ -2,98 +2,109 @@
 
 ## Project Overview
 
-This project documents my hands-on practice with Microsoft Entra ID in a personal cloud lab environment. The scenarios focus on identity administration, delegated administration, role-based access control, authentication troubleshooting, and user provisioning.
+This repository documents hands-on Microsoft Entra ID labs completed in a personal cloud environment to build practical skills in identity administration, access management, authentication troubleshooting, privileged access, and user provisioning.
 
-The labs demonstrate both the administrative and support sides of identity management—from assigning appropriate administrative access to investigating authentication problems and managing user identities.
+The scenarios focus on tasks relevant to IT Support, junior systems administration, cloud support, and Identity & Access Management (IAM), including investigating sign-in problems, managing administrative roles, delegating administrative responsibilities, and provisioning users.
 
-> **Note:** This is a personal hands-on lab created for learning and skill development. It does not represent professional production experience.
+> **Note:** All scenarios in this repository were completed in a personal lab environment for hands-on learning and do not represent professional production experience.
 
----
-
-## Technologies & Tools
+## Environment & Technologies
 
 - Microsoft Entra ID
 - Microsoft Entra admin center
-- Microsoft Azure portal
-- Entra roles and role assignments
+- Microsoft Entra administrative roles
 - Privileged Identity Management (PIM)
 - Administrative Units
 - Sign-in logs
-- Authentication methods
-- CSV bulk user provisioning
-
----
-
-## Skills Practiced
-
-- User and group administration
-- Microsoft Entra role assignment
-- Role-Based Access Control (RBAC) concepts
-- Privileged role eligibility and activation concepts
-- Delegated administration using Administrative Units
-- Authentication and sign-in troubleshooting
-- Account lockout investigation
-- MFA-related sign-in investigation
+- Authentication and MFA
 - Bulk user provisioning
-- Identity and access troubleshooting
-- Reviewing sign-in logs and authentication details
+- Microsoft Excel / CSV
+- Test tenant: Williamson Technology Group
 
----
-
-## Featured Scenarios
+## Featured Labs
 
 ### 1. Administrative Units & Delegated Administration
 
-Configured Administrative Units to organize users by location and practiced delegating administrative responsibilities within a limited scope.
+Created Administrative Units to organize identities by location and practiced delegating administrative responsibilities within a defined scope.
 
-**Key skills:** Administrative Units, scoped administration, User Administrator role, delegated access
+This lab reinforced the difference between placing users inside an Administrative Unit and assigning an administrative role scoped to that unit.
+
+➡️ [View Lab 10 – Administrative Units & Delegated Administration](Lab-10-Administrative-Units/README.md)
 
 ### 2. Account Lockout Investigation
 
-Investigated a user account lockout using Microsoft Entra sign-in information, identified repeated authentication failures, and performed account recovery steps.
+Investigated a test account that became temporarily blocked after repeated failed authentication attempts.
 
-**Key skills:** Sign-in troubleshooting, account lockout investigation, authentication logs, user support
+Used Microsoft Entra sign-in logs to identify the affected account, review error information including error code **50053**, isolate the relevant sign-in activity, and perform a password reset as a remediation step.
 
-### 3. Interrupted Sign-In & MFA Investigation
+➡️ [View Lab 06 – Account Lockout Investigation](Lab-06-Account-Lockout/README.md)
 
-Analyzed an interrupted Microsoft Entra sign-in and reviewed authentication details to understand why access was not completed.
+### 3. Administrative Roles & RBAC
 
-**Key skills:** Sign-in logs, MFA troubleshooting, authentication analysis, device and sign-in context
+Reviewed Microsoft Entra administrative roles, examined the User Administrator role, assigned the role to a test user through the privileged role-assignment workflow, and verified the resulting active assignment.
 
-### 4. Microsoft Entra Roles & Privileged Access
+This lab reinforced the distinction between role-based access concepts and Privileged Identity Management (PIM), as well as the importance of selecting targeted administrative privileges instead of unnecessarily broad access.
 
-Practiced assigning a Microsoft Entra administrative role and explored the difference between eligible and active privileged access.
+➡️ [View Lab 09 – Administrative Roles & RBAC](Lab-09-Entra-Roles-RBAC/README.md)
 
-**Key skills:** Entra roles, RBAC concepts, Privileged Identity Management, least privilege
+### 4. Interrupted Sign-In & MFA Investigation
 
-### 5. Bulk User Provisioning
+Investigated an interrupted Microsoft Entra sign-in using authentication, device, and access information from the sign-in logs.
 
-Used CSV-based bulk user creation to practice provisioning multiple Microsoft Entra user accounts efficiently.
+The evidence showed that the password authentication step succeeded but the MFA portion of the authentication process did not complete successfully.
 
-**Key skills:** User provisioning, CSV import, identity administration
+This scenario reinforced the importance of reviewing multiple pieces of sign-in evidence before determining why an authentication attempt failed.
 
----
+➡️ [View Lab 07 – Interrupted Sign-In & MFA Investigation](Lab-07-Interrupted-Sign-In-MFA/README.md)
 
-## Key Concepts Reinforced
+### 5. Bulk User Provisioning with CSV
 
-This project helped reinforce several important identity and access concepts:
+Prepared a structured CSV containing ten test identities and used Microsoft Entra's bulk user creation workflow to provision the accounts.
 
-- **Group membership does not automatically grant resource access.** A group must be connected to an appropriate role, permission, or resource assignment.
-- **RBAC and PIM serve different purposes.** RBAC determines what permissions a role provides, while PIM can control how privileged access is made eligible or active.
-- **Authentication method registration is different from MFA enforcement.**
-- **Sign-in failures require context.** A failed or interrupted authentication attempt does not automatically mean malicious activity.
-- **Administrative Units define administrative scope, while scoped role assignments determine what an administrator can do within that scope.**
+Verified the results by reviewing the user directory after the operation and confirming that the additional test identities appeared.
 
----
+➡️ [View Lab 11 – Bulk User Provisioning](Lab-11-Bulk-User-Provisioning/README.md)
 
-## Repository Structure
+## Skills Demonstrated
 
-This repository contains selected Microsoft Entra ID lab scenarios that demonstrate identity administration, access management, and authentication troubleshooting. Each scenario includes focused documentation and supporting screenshots.
+- Microsoft Entra ID administration
+- Identity and Access Management (IAM) fundamentals
+- User provisioning and account administration
+- Authentication troubleshooting
+- Sign-in log investigation
+- Multi-Factor Authentication (MFA) troubleshooting
+- Administrative role management
+- Role-Based Access Control (RBAC) concepts
+- Privileged Identity Management (PIM) concepts
+- Administrative Units
+- Delegated administration
+- Least-privilege principles
+- Bulk user provisioning
+- CSV-based identity administration
+- Technical troubleshooting and documentation
 
----
+## Troubleshooting Approach
 
-## What I Learned
+Across these labs, I practiced approaching identity and access issues as a troubleshooting process rather than simply completing configuration steps.
 
-Working through these scenarios strengthened my understanding of how cloud identity administration connects to everyday IT support and security. I gained hands-on practice managing identities, investigating authentication issues, working with administrative roles, delegating access, and documenting the results of identity-related tasks.
+My general workflow was:
 
-The labs also reinforced the importance of verifying what a configuration actually does rather than assuming that a group name, role assignment, authentication event, or security setting provides a specific level of access.
+**Identify the issue → Gather evidence → Review identity/access configuration → Determine the likely cause or required change → Take action → Verify the result → Document the process**
+
+This approach helped me connect Microsoft Entra administration with the type of structured troubleshooting used in IT support and identity-focused roles.
+
+## Key Takeaways
+
+Working through these scenarios strengthened my understanding of how identity administration extends beyond simply creating users and resetting passwords.
+
+I gained hands-on practice with:
+
+- Investigating authentication and account-access problems
+- Reviewing sign-in evidence before reaching a conclusion
+- Understanding how administrative roles delegate permissions
+- Distinguishing RBAC concepts from privileged role management
+- Delegating administration within defined scopes
+- Provisioning multiple identities efficiently
+- Applying least-privilege thinking when assigning administrative access
+
+These labs also reinforced the importance of verifying results and documenting only what the available evidence supports.
